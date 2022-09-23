@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Add Book</title>
+  </head>
+  <body>
+    <form method="POST" action="{{url_for('add_book')}}" novalidate>
+      {{ form.csrf_token }} {{form.name.label}} {{form.name()}}
+      {{form.author.label}} {{form.author()}} {{form.rating.label}}
+      {{form.rating()}} {{form.submit()}}
+    </form>
+  </body>
+</html>

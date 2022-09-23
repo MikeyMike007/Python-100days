@@ -1,0 +1,15 @@
+<html>
+  <head>
+    <title>Hello, World!</title>
+  </head>
+  <body>
+    <h1>Hello, World!</h1>
+    <h2>{{5*6}}</h2>
+    <h2>Random number: {{num}}</h2>
+    <!-- See method url_for(function_name) to get to blog on the flask server -->
+    <a href="{{url_for('get_blog', num=3)}}">Go to blog</a>
+  </body>
+  <footer>
+    <p>Current year: {{year}}</p>
+  </footer>
+</html>

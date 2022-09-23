@@ -1,0 +1,5 @@
+You can inject html code from other templates like:
+
+    {% include "header.html" %}
+    Web page content
+    {% include "footer.html" %}
