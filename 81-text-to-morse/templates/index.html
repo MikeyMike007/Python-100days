@@ -1,0 +1,44 @@
+{% extends "bootstrap/base.html" %} 
+{% import "bootstrap/wtf.html" as wtf %}
+{% from "_formhelpers.html" import render_field %}
+
+{% block title %}This is an example page{% endblock %}
+
+{% block styles %}
+  {{super()}}
+  <link rel="stylesheet" href="../static/css/style.css" />
+{% endblock %} 
+
+{% block scripts %}
+  <script src="../static/js/morse.js" defer></script>
+  {{super()}}
+{% endblock %}
+
+{% block content %}
+<div class="mb-3 container">
+  <form action="{{url_for('home')}}" method="POST" novalidate>
+    <p>
+      {{ form.csrf_token }} 
+      {{ render_field(form.message.label, class='form-label') }}
+      {{ render_field(form.message, class='form-control', rows="5") }}
+      {{ form.morse_sounds() }}
+    </p>
+    <p>
+    {{ render_field(form.morse_code.label, class='form-label') }}
+    {{ render_field(form.morse_code, class='form-control', rows="5") }}
+
+    </p>
+    <p>
+      {{form.submit()}} 
+    </p>
+    <p>
+      {% if form.errors %}
+        {{ form.errors }} 
+      {% endif %}
+     </p>
+  </form>
+
+  <button id="btn_play">Play Code</button>
+
+  </div>
+{% endblock %}
